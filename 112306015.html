@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Comparison</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Input Comparison</h1>
+  
+  <script>
+    function getInput1() {
+      var firstInput = prompt("Enter the first input:");
+      if (firstInput !== null) {
+        document.getElementById("input1").innerHTML = "First Input: " + firstInput;
+      }
+    }
+
+    function getInput2() {
+      var secondInput = prompt("Enter the second input:");
+      if (secondInput !== null) {
+        document.getElementById("input2").innerHTML = "Second Input: " + secondInput;
+        compareInputs();
+      }
+    }
+
+    function compareInputs() {
+      var first = parseInt(document.getElementById("input1").innerHTML.split(":")[1]);
+      var second = parseInt(document.getElementById("input2").innerHTML.split(":")[1]);
+      var output = document.getElementById("output");
+
+      if (first > second) {
+        document.body.style.backgroundColor = "lightblue";
+        output.innerHTML = "First Input > Second Input";
+      } else if (second > first) {
+        document.body.style.backgroundColor = "orange";
+        output.innerHTML = "Second Input > First Input";
+      } else {
+        document.body.style.backgroundColor = "lightyellow";
+        output.innerHTML = "Second Input == First Input";
+      }
+    }
+  </script>
+
+  <button onclick="getInput1()">Show First Input</button>
+  <button onclick="getInput2()">Show Second Input</button>
+  <br><br>
+  <div id="input1"></div>
+  <div id="input2"></div>
+  <div id="output"></div>
+</body>
+</html>
